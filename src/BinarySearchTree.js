@@ -83,6 +83,17 @@ class BinarySearchTree {
     return values;
   }
 
+  dfsPostOrder(values = []) {
+    if (this.left) {
+      values = this.left.dfsPostOrder(values);
+    }
+    if (this.right) {
+      values = this.right.dfsPostOrder(values);
+    }
+    values.push(this.values);
+    return values;
+  }
+
   _replaceWith(node) {
     if (this.parent) {
       if (this == this.parent.left) {
